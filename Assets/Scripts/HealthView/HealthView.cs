@@ -16,13 +16,18 @@ public abstract class HealthView : MonoBehaviour
 
     private void Start()
     {
-        UpdateHealth(_health.CurrentValue, _health.MaxValue);
+        UpdateValue(_health.CurrentValue, _health.MaxValue);
     }
 
-    private void OnValueChanged(float currentHealth, bool isDamage) 
-    { 
-        UpdateHealth(currentHealth, _health.MaxValue);
+    private void LateUpdate()
+    {
+        transform.rotation = Camera.main.transform.rotation;
     }
 
-    public abstract void UpdateHealth(float currentValue, float maxValue);
+    private void OnValueChanged(float currentHealth, bool isDamage)
+    {
+        UpdateValue(currentHealth, _health.MaxValue);
+    }
+
+    public abstract void UpdateValue(float currentValue, float maxValue);
 }

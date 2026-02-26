@@ -8,7 +8,7 @@ public class HealthBarSmoothView : HealthBarView
     private Coroutine _drainCoroutine;
     private float _targetFillAmount = 1f;
 
-    public override void UpdateHealth(float currentValue, float maxValue)
+    public override void UpdateValue(float currentValue, float maxValue)
     {
         _targetFillAmount = Mathf.Clamp01(currentValue / maxValue);
         _drainCoroutine ??= StartCoroutine(ChangeBar());

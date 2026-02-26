@@ -13,7 +13,7 @@ public class HealtBarTextView : HealthView
         _format = $"F{_decimalPlaces}";
     }
 
-    public override void UpdateHealth(float currentValue, float maxValue)
+    public override void UpdateValue(float currentValue, float maxValue)
     {
         _text.text = $"{currentValue.ToString(_format)} / {maxValue.ToString(_format)}";
     }

@@ -12,7 +12,7 @@ public class HealthBarView : HealthView
         set => SetFillAmount(value);
     }
 
-    public override void UpdateHealth(float currentValue, float maxValue)
+    public override void UpdateValue(float currentValue, float maxValue)
     {
         SetFillAmount(currentValue / maxValue);
     }

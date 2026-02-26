@@ -5,9 +5,9 @@ public class Health : MonoBehaviour, IDamageable, IRegeneratable
 {
     private const float MinValue = 0f;
 
-    public delegate void HealthHandler(float currentValue, bool isDamage);
+    public delegate void ValueHandler(float currentValue, bool isDamage);
 
-    public event HealthHandler ValueChanged;
+    public event ValueHandler ValueChanged;
     public event Action Died;
 
     [field: SerializeField, Min(1f)] public float MaxValue { get; private set; } = 20f;
