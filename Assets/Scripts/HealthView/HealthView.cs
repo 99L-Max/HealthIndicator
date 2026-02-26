@@ -6,22 +6,22 @@ public abstract class HealthView : MonoBehaviour
 
     private void OnEnable()
     {
-        _health.HealthChanged += OnHealthChanged;
+        _health.ValueChanged += OnValueChanged;
     }
 
     private void OnDisable()
     {
-        _health.HealthChanged -= OnHealthChanged;
+        _health.ValueChanged -= OnValueChanged;
     }
 
     private void Start()
     {
-        UpdateHealth(_health.CurrentHealth, _health.MaxHealth);
+        UpdateHealth(_health.CurrentValue, _health.MaxValue);
     }
 
-    private void OnHealthChanged(float currentHealth, bool isDamage) 
+    private void OnValueChanged(float currentHealth, bool isDamage) 
     { 
-        UpdateHealth(currentHealth, _health.MaxHealth);
+        UpdateHealth(currentHealth, _health.MaxValue);
     }
 
     public abstract void UpdateHealth(float currentValue, float maxValue);
